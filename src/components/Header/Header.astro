@@ -1,11 +1,13 @@
 ---
 import './Header.css';
+const TRANSPARENT_WITH_OPACITY = 'bg-transparent/10';
 ---
 
 <script>
 	/* Variables */
-	const PRIMARY_COLOR = 'bg-primary-600';
+	const PRIMARY_COLOR = 'bg-primary-700';
 	const TRANSPARENT = 'bg-transparent';
+	const TRANSPARENT_WITH_OPACITY = 'bg-transparent/10';
 
 	const subheader = document.querySelector('.subheader') as HTMLElement;
 	const button = document.querySelector('.menu-button') as HTMLElement;
@@ -21,7 +23,7 @@ import './Header.css';
 	/* Intersection Observer */
 	const handleSubheaderIsVisible = () => {
 		nav?.classList.remove(PRIMARY_COLOR);
-		nav?.classList.add(TRANSPARENT);
+		nav?.classList.add(TRANSPARENT_WITH_OPACITY);
 
 		if (!isMenuOpen) {
 			ul?.classList.remove(PRIMARY_COLOR);
@@ -30,7 +32,7 @@ import './Header.css';
 	};
 
 	const handleSubheaderIsNotVisible = () => {
-		nav?.classList.remove(TRANSPARENT);
+		nav?.classList.remove(TRANSPARENT_WITH_OPACITY);
 		ul?.classList.remove(TRANSPARENT);
 
 		nav?.classList.add(PRIMARY_COLOR);
@@ -88,7 +90,7 @@ import './Header.css';
 			class:list={[
 				['subheader'],
 				['w-full h-full'],
-				['object-cover object-bottom'],
+				['object-cover'],
 				['bg-cover'],
 			]}
 			src='/subheader.jpeg'
@@ -98,11 +100,12 @@ import './Header.css';
 	<nav
 		class:list={[
 			['menu-nav'],
+			['max-w-[2048px]'],
 			['fixed top-0'],
 			['w-full h-[3.75rem]'],
 			['z-20'],
 			['border-b border-gray-200'],
-			['bg-transparent'],
+			[TRANSPARENT_WITH_OPACITY],
 		]}
 	>
 		<div class:list={[['h-full'], ['flex flex-wrap']]}>
@@ -179,7 +182,8 @@ import './Header.css';
 							<li
 								class:list={[
 									['pl-[12px] pr-[12px] pt-[4px]'],
-									['text-white', 'dark:text-neutral-100'],
+									['text-white'],
+									['text-xl'],
 									[
 										'border-b-4 -mb-1 border-transparent',
 										'hover:border-secondary-400',
