@@ -1,9 +1,20 @@
 /** @type {import('tailwindcss').Config} */
+
+const colors = require('tailwindcss/colors')
+
 export default {
 	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
-	darkMode: 'selector',
 	theme: {
-		extend: {},
+		colors: {
+			primary: colors.indigo,
+			secondary: colors.rose,
+			neutral: colors.slate,
+			transparent: 'transparent',
+			white: '#FFF',
+			black: '#000'
+		  },
 	},
-	plugins: [],
+	plugins: [
+		require('flowbite/plugin')
+	],
 }

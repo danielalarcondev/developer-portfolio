@@ -1,0 +1,213 @@
+---
+import './Header.css';
+---
+
+<script>
+	/* Variables */
+	const PRIMARY_COLOR = 'bg-primary-600';
+	const TRANSPARENT = 'bg-transparent';
+
+	const subheader = document.querySelector('.subheader') as HTMLElement;
+	const button = document.querySelector('.menu-button') as HTMLElement;
+	const ul = document.querySelector('.menu-ul') as HTMLElement;
+	const nav = document.querySelector('.menu-nav') as HTMLElement;
+
+	let isMenuOpen = false;
+	let intersectionObserverOptions = {
+		root: null,
+		threshold: 1.0,
+	};
+
+	/* Intersection Observer */
+	const handleSubheaderIsVisible = () => {
+		nav?.classList.remove(PRIMARY_COLOR);
+		nav?.classList.add(TRANSPARENT);
+
+		if (!isMenuOpen) {
+			ul?.classList.remove(PRIMARY_COLOR);
+			ul?.classList.add(TRANSPARENT);
+		}
+	};
+
+	const handleSubheaderIsNotVisible = () => {
+		nav?.classList.remove(TRANSPARENT);
+		ul?.classList.remove(TRANSPARENT);
+
+		nav?.classList.add(PRIMARY_COLOR);
+		ul?.classList.add(PRIMARY_COLOR);
+	};
+
+	const handleScroll = ([entry]: IntersectionObserverEntry[]) => {
+		const isSubheaderVisible = entry?.isIntersecting;
+
+		if (isSubheaderVisible) {
+			handleSubheaderIsVisible();
+			return;
+		}
+
+		handleSubheaderIsNotVisible();
+	};
+
+	let observer = new IntersectionObserver(
+		handleScroll,
+		intersectionObserverOptions
+	);
+
+	if (subheader && observer) {
+		observer.observe(subheader);
+	}
+
+	/* Events - Menu Button */
+	button?.addEventListener('click', () => {
+		isMenuOpen = !isMenuOpen;
+
+		if (isMenuOpen) {
+			ul?.classList.remove(TRANSPARENT);
+			ul?.classList.add(PRIMARY_COLOR);
+		} else {
+			ul?.classList.remove(PRIMARY_COLOR);
+			ul?.classList.add(TRANSPARENT);
+		}
+	});
+
+	const closeMenu = () => {
+		if (isMenuOpen) {
+			button?.click();
+		}
+	};
+
+	/* Resize Observer */
+	new ResizeObserver(() => {
+		closeMenu();
+	}).observe(document.body);
+</script>
+
+<header class:list={['w-full']}>
+	<div class:list={[['w-full h-[250px]']]}>
+		<img
+			class:list={[
+				['subheader'],
+				['w-full h-full'],
+				['object-cover object-bottom'],
+				['bg-cover'],
+			]}
+			src='/subheader.jpeg'
+		/>
+	</div>
+
+	<nav
+		class:list={[
+			['menu-nav'],
+			['fixed top-0'],
+			['w-full h-[3.75rem]'],
+			['z-20'],
+			['border-b border-gray-200'],
+			['bg-transparent'],
+		]}
+	>
+		<div class:list={[['h-full'], ['flex flex-wrap']]}>
+			<div
+				class:list={[
+					['flex'],
+					['md:order-2'],
+					['space-x-3'],
+					['md:space-x-0'],
+					['rtl:space-x-reverse'],
+				]}
+			>
+				<button
+					class:list={[
+						['menu-button'],
+						['w-10'],
+						['inline-flex'],
+						['items-center justify-center'],
+						['text-sm text-white'],
+						['rounded-lg'],
+						['md:hidden'],
+					]}
+					data-collapse-toggle='navbar-sticky'
+					type='button'
+					aria-controls='navbar-sticky'
+					aria-expanded='false'
+				>
+					<svg
+						class:list={[['menu-icon'], ['w-5 h-5']]}
+						aria-hidden='true'
+						xmlns='http://www.w3.org/2000/svg'
+						fill='none'
+						viewBox='0 0 17 14'
+					>
+						<path
+							stroke='currentColor'
+							stroke-linecap='round'
+							stroke-linejoin='round'
+							stroke-width='2'
+							d='M1 1h15M1 7h15M1 13h15'></path>
+					</svg>
+				</button>
+			</div>
+
+			<div
+				class:list={[
+					['md:flex'],
+					['flex-1'],
+					['w-full h-full', 'md:w-auto'],
+					['items-center justify-center'],
+					['hidden'],
+					['md:order-1'],
+				]}
+				id='navbar-sticky'
+			>
+				<ul
+					class:list={[
+						['menu-ul '],
+						['flex flex-col', 'md:flex-row'],
+						['p-4', 'md:p-0'],
+						['mt-4 mr-10', 'md:mt-0'],
+						['font-medium'],
+						['border border-gray-100 rounded-lg', 'md:border-0'],
+						['md:space-x-8 rtl:space-x-reverse'],
+						['bg-transparent'],
+					]}
+				>
+					{
+						[
+							{ text: 'Home' },
+							{ text: 'Commercial Experience' },
+							{ text: 'Projects' },
+						].map((link, index) => (
+							<li
+								class:list={[
+									['pl-[12px] pr-[12px] pt-[4px]'],
+									['text-white', 'dark:text-neutral-100'],
+									[
+										'border-b-4 -mb-1 border-transparent',
+										'hover:border-secondary-400',
+									],
+									['hover:cursor-pointer'],
+									['w-fit h-fit'],
+								]}
+							>
+								<a
+									href='#'
+									class:list={[
+										['menu-anchor'],
+										['h-auto'],
+										['block'],
+										['py-2 px-3', 'md:p-0'],
+										['md:bg-transparent'],
+									]}
+									aria-current={
+										(index === 0 && 'page') || undefined
+									}
+								>
+									{link.text}
+								</a>
+							</li>
+						))
+					}
+				</ul>
+			</div>
+		</div>
+	</nav>
+</header>
