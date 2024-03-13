@@ -1,0 +1,183 @@
+---
+import LocationIcon from './Icons/LocationIcon.astro';
+import SpanishIcon from './Icons/SpanishIcon.astro';
+import EnglishIcon from './Icons/EnglishIcon.astro';
+import JavascriptIcon from './Icons/JavascriptIcon.astro';
+import TypescriptIcon from './Icons/TypescriptIcon.astro';
+import HtmlIcon from './Icons/HtmlIcon.astro';
+import Css3Icon from './Icons/Css3Icon.astro';
+import SassIcon from './Icons/SassIcon.astro';
+import ReactIcon from './Icons/ReactIcon.astro';
+import ReduxIcon from './Icons/ReduxIcon.astro';
+import AngularIcon from './Icons/AngularIcon.astro';
+import NodeIcon from './Icons/NodeIcon.astro';
+import NestIcon from './Icons/NestIcon.astro';
+import NextIcon from './Icons/NextIcon.astro';
+import AstroIcon from './Icons/AstroIcon.astro';
+
+import ContactMe from './ContactMe/ContactMe.astro';
+---
+
+<section
+	aria-label='Profile information'
+	class:list={[
+		'w-full',
+		'h-fit',
+		'flex',
+		'flex-col',
+		'gap-8 p-8',
+		'outline',
+		'outline-2',
+		'-outline-offset-2',
+		'rounded-sm',
+		[
+			'outline-neutral-300 hover:outline-primary-500',
+			'dark:hover:outline-primary-500',
+		],
+		'hover:shadow-lg',
+		['bg-white', 'dark:bg-neutral-200'],
+	]}>
+	<article
+		class:list={[
+			'flex',
+			'flex-col',
+			'my-0',
+			'mx-auto gap-4',
+			'justify-center',
+		]}>
+		<img
+			class:list={['w-auto', 'h-44', 'rounded-full']}
+			src='/profile.jpeg'
+			alt='A portrait of Daniel Alarcón'
+		/>
+
+		<div class:list={['text-center']}>
+			<h1 class:list={['text-2xl', 'text-neutral-700']}>
+				Daniel Alarcón
+			</h1>
+			<p
+				class:list={[
+					'text-sm',
+					['text-neutral-400', 'dark:text-neutral-500'],
+				]}>
+				Software Engineer
+			</p>
+			<div
+				class:list={[
+					'flex',
+					'justify-center',
+					'flex-col',
+					'mt-[0.5rem]',
+					'text-neutral-700',
+				]}>
+				<LocationIcon />
+				<p
+					class:list={[
+						'text-sm',
+						'align-bottom',
+						['text-neutral-400', 'dark:text-neutral-500'],
+					]}>
+					Frisco TX
+				</p>
+				<p
+					class:list={[
+						'text-sm',
+						'align-bottom',
+						['text-neutral-400', 'dark:text-neutral-500'],
+					]}>
+					United States
+				</p>
+			</div>
+		</div>
+	</article>
+
+	<article class:list={['flex', 'justify-center', 'flex-col', 'gap-[13px]']}>
+		<ContactMe />
+	</article>
+
+	<article
+		class:list={[
+			'border',
+			'rounded-sm p-4',
+			'border-neutral-300 hover:border-secondary-300',
+		]}>
+		<p class:list={['text-base', 'font-bold', 'dark:text-neutral-900']}>
+			Languages
+		</p>
+		<hr class:list={['mt-1', 'mb-[0.5rem]', '-ml-1']} />
+		<div>
+			<div>
+				<EnglishIcon />
+				<p
+					class:list={[
+						'inline',
+						'align-',
+						'mr-[4px]',
+						'text-neutral-700',
+						'text-sm',
+					]}>
+					English
+				</p>
+			</div>
+
+			<div>
+				<SpanishIcon />
+				<p
+					class:list={[
+						'inline',
+						'align-bottom',
+						'text-neutral-700',
+						'text-sm',
+					]}>
+					Spanish
+				</p>
+			</div>
+		</div>
+	</article>
+
+	<article
+		class:list={[
+			'border',
+			'rounded-sm',
+			'p-4',
+			'border-neutral-300 hover:border-secondary-300',
+		]}>
+		<p class:list={['text-base', 'font-bold', 'dark:text-neutral-900']}>
+			About me
+		</p>
+		<hr class:list={['mt-1', 'mb-[0.5rem]', '-ml-1']} />
+		<div class:list={['flex', 'flex-col', 'gap-4 ', 'text-neutral-700']}>
+			<p class:list={['text-sm']}>
+				I'm passionate about building products on the web, especialized
+				in the Front-end with over 5 years of commerical experience.
+			</p>
+
+			<p class:list={['text-sm']}>
+				My strongest tech skills are the solid knowledge of the
+				front-end stack (JavaScript, CSS. HTML), which gives me the base
+				to learn, use, an be quickly productive with the javascript
+				ecosystem and all the tools necessary to bridge the gap between
+				data/API and UI/UX design and create user-friendly and accesible
+				products.
+			</p>
+
+			{
+				/* IDEA: the svgs should be a link to official place of the technology */
+			}
+			<div class:list={['flex gap-2', 'flex-wrap']}>
+				<JavascriptIcon />
+				<TypescriptIcon />
+				<HtmlIcon />
+				<Css3Icon />
+				<SassIcon />
+				<ReactIcon />
+				<ReduxIcon />
+				<AngularIcon />
+				<NodeIcon />
+				<NestIcon />
+				<NextIcon />
+				<AstroIcon />
+			</div>
+		</div>
+	</article>
+</section>

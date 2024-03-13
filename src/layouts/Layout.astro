@@ -1,6 +1,8 @@
 ---
 import '@fontsource-variable/onest';
 import Header from '../components/Header/Header.astro';
+import Profile from '../components/Profile/Profile.astro';
+import './layout.css';
 
 interface Props {
 	title: string;
@@ -8,7 +10,12 @@ interface Props {
 ---
 
 <!doctype html>
-<html lang='en' class='bg-neutral-50 dark:bg-neutral-800'>
+<html
+	lang='en'
+	class:list={[
+		['bg-neutral-100', 'dark:bg-neutral-800'],
+		['text-neutral-800', 'dark:text-neutral-200'],
+	]}>
 	<head>
 		<meta charset='UTF-8' />
 		<meta
@@ -25,12 +32,25 @@ interface Props {
 		></script>
 	</head>
 	<body
-		class='max-w-[2048px] min-h-screen w-auto mx-auto text-neutral-800 dark:text-neutral-300'
-	>
-		<Header />
+		class:list={['max-w-screen-2xl', 'min-h-screen', 'w-auto', 'mx-auto']}>
+		<div class:list={['h-[250px]', 'w-full']}>
+			<Header />
+		</div>
 
-		<div class='max-w-screen-lg mx-auto'>
-			<slot />
+		<div
+			class:list={[
+				'max-w-screen-xl',
+				'mx-auto',
+				'body-container',
+				'm-none md:p-12',
+				'gap-0 gap-12',
+			]}>
+			<div class:list={['w-full', 'max-w-none lg:max-w-[22rem]']}>
+				<Profile />
+			</div>
+			<main class:list={['w-full']}>
+				<slot />
+			</main>
 		</div>
 	</body>
 </html>

@@ -1,0 +1,12 @@
+.body-container {
+	display: grid;
+    grid-template-columns: 1fr;
+
+    @media (min-width: 768px) {
+        grid-template-columns: 1fr 1.5fr;
+    }
+
+    @media (min-width: 1024px) {
+        grid-template-columns: 1fr 2fr;
+    }
+}

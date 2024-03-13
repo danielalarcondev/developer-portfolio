@@ -1,0 +1,23 @@
+@keyframes flashText {
+	0% {
+		color: theme('colors.neutral.500');
+		transform: scale(1);
+	}
+	25% {
+		transform: scale(0.97);
+	}
+	75% {
+		color: theme('colors.primary.500');
+		transform: scale(1.05);
+	}
+	100% {
+		color: theme('colors.neutral.500');
+		transform: scale(1);
+	}
+}
+
+.email-copied-animation {
+	animation-name: flashText;
+	animation-duration: 1.5s;
+	animation-iteration-count: 1;
+}
