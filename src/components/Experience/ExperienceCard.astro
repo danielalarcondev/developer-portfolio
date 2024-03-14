@@ -21,18 +21,30 @@ const { date, title, description, tags } = Astro.props;
 		'gap-2 lg:gap-8',
 		'rounded',
 		'p-6',
-		'hover:bg-secondary-100',
+		'hover:bg-secondary-100 dark:hover:bg-secondary-600/50',
 	]}>
 	<div class:list={['flex-0']}>
-		<h1 class:list={['text-neutral-500', 'text-sm', 'pt-none lg:pt-1.5']}>
+		<h1
+			class:list={[
+				'text-neutral-500 dark:text-neutral-400',
+				'text-sm',
+				'pt-none lg:pt-1.5',
+			]}>
 			{date}
 		</h1>
 	</div>
 	<div class:list={['flex-1', 'flex', 'flex-col', 'gap-0.5']}>
-		<h1 class:list={['font-bold', 'text-lg', 'text-neutral-950']}>
+		<h1
+			class:list={[
+				'font-bold',
+				'text-lg',
+				'text-neutral-950 dark:text-neutral-200',
+			]}>
 			{title}
 		</h1>
-		<p class:list={['text-neutral-700']}>{description}</p>
+		<p class:list={['text-neutral-700 dark:text-neutral-300']}>
+			{description}
+		</p>
 		<ul class:list={['flex', 'flex-wrap', 'mb-1.5']}>
 			{
 				tags.map((tag: string) => (
