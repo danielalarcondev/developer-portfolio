@@ -1,40 +1,23 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Experience from '../components/Experience/Experience.astro';
+import Profile from '../components/Profile/Profile.astro';
 ---
 
 <Layout title='Home'>
-	{
-		[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(() => (
-			<p class:list={['w-full', 'pb-10', 'break-words']}>
-				Est est ea proident quis culpa ullamco ea. Quis aliquip sunt
-				quis consequat fugiat aliquip ex fugiat. Nulla non ad Lorem
-				aliquip sunt quis pariatur eiusmod occaecat. Incididunt qui
-				culpa aute eu anim laborum. Exercitation cillum esse esse quis
-				id fugiat. Veniam nisi culpa mollit qui aliqua in ea. Anim
-				eiusmod velit in proident voluptate incididunt in amet culpa.
-				Tempor elit exercitation Lorem pariatur exercitation pariatur
-				occaecat consequat tempor aliqua qui deserunt amet. Ullamco
-				commodo eu eu fugiat aliqua excepteur adipisicing ullamco dolor
-				quis in esse. Pariatur proident consectetur velit quis
-				reprehenderit laborum amet minim culpa incididunt. Fugiat
-				eiusmod irure enim officia non consequat anim est dolor. Amet
-				Lorem mollit fugiat ea sint esse. Aliquip ea aliqua occaecat
-				culpa excepteur. Id non laboris id incididunt pariatur.
-				Excepteur eu esse excepteur sunt Lorem ipsum irure. Nisi ut
-				fugiat incididunt culpa esse aliqua officia ad deserunt dolor
-				ullamco. Nisi in exercitation qui fugiat reprehenderit qui.
-				Proident enim proident aliquip elit. Sunt laborum ea adipisicing
-				deserunt. Et enim laboris amet nulla irure eu velit qui ex
-				exercitation commodo velit. Laborum labore dolor ad tempor
-				mollit sint. Cupidatat quis ullamco irure enim eu in excepteur
-				fugiat irure ex sunt incididunt. Fugiat sit proident consectetur
-				laborum laboris velit consectetur elit in mollit nisi irure
-				nostrud. Deserunt nostrud ullamco nostrud exercitation irure
-				officia ex. In nostrud irure commodo occaecat consectetur
-				consectetur sit culpa. Sunt do ea aute aliquip. Incididunt ipsum
-				nisi voluptate eiusmod in ad quis excepteur eiusmod nulla
-				laboris voluptate.
-			</p>
-		))
-	}
+	<div
+		class:list={[
+			'grid',
+			'grid-cols-[1fr] md:grid-cols-[1fr_1.5fr] lg:grid-cols-[1fr_2.5fr]',
+			'gap-12',
+		]}>
+		<div class:list={['w-full']}>
+			<Profile />
+		</div>
+		<main class:list={['w-full']}>
+			<Experience />
+		</main>
+
+		<div class:list={['w-full', 'h-auto', 'md:col-span-2']}></div>
+	</div>
 </Layout>
