@@ -1,0 +1,147 @@
+@keyframes fadeInPrevious {
+	0% {
+		display: flex;
+		opacity: 0;
+		transform: skew(45deg, 45deg);
+	}
+
+    100% {
+		opacity: 1;
+		transform: skew(0deg, 0deg);
+	}
+}
+
+@keyframes fadeOutPrevious {
+	0% {
+		opacity: 1;
+		transform: skew(0deg, 0deg);
+	}
+	
+    100% {
+		opacity: 0;
+		display: hidden;
+		transform: skew(45deg, 45deg);
+	}
+}
+
+@keyframes fadeInNext {
+	0% {
+		display: flex;
+		opacity: 0;
+		transform: skew(-45deg, -45deg);
+	}
+
+    100% {
+		opacity: 1;
+		transform: skew(0deg, 0deg);
+	}
+}
+
+@keyframes fadeOutNext {
+	0% {
+		opacity: 1;
+		transform: skew(0deg, 0deg);
+	}
+	
+    100% {
+		opacity: 0;
+		display: hidden;
+		transform: skew(-45deg, -45deg);
+	}
+}
+
+/* Phone */
+
+@keyframes fadeInPreviousPhone {
+	0% {
+		display: flex;
+		opacity: 0;
+		transform: skew(45deg, 45deg);
+	}
+
+    100% {
+		opacity: 1;
+		transform: skew(0deg, 0deg);
+	}
+}
+
+@keyframes fadeOutPreviousPhone {
+	0% {
+		opacity: 1;
+		transform: skew(0deg, 0deg);
+	}
+	
+    100% {
+		opacity: 0;
+		display: hidden;
+		transform: skew(-45deg, -45deg);
+	}
+}
+
+@keyframes fadeInNextPhone {
+	0% {
+		display: flex;
+		opacity: 0;
+		transform: skew(-45deg, -45deg);
+	}
+
+    100% {
+		opacity: 1;
+		transform: skew(0deg, 0deg);
+	}
+}
+
+@keyframes fadeOutNextPhone {
+	0% {
+		opacity: 1;
+		transform: skew(0deg, 0deg);
+	}
+	
+    100% {
+		opacity: 0;
+		display: hidden;
+		transform: skew(45deg, 45deg);
+	}
+}
+
+.fade-in-previous {
+	animation-name: fadeInPreviousPhone;
+	animation-duration: 0.7s;
+	animation-fill-mode: forwards;
+}
+
+.fade-out-previous {
+	animation-name: fadeOutPreviousPhone;
+	animation-duration: 0.7s;
+	animation-fill-mode: forwards;
+}
+
+.fade-in-next {
+	animation-name: fadeInNextPhone;
+	animation-duration: 0.7s;
+	animation-fill-mode: forwards;
+}
+
+.fade-out-next {
+	animation-name: fadeOutNextPhone;
+	animation-duration: 0.7s;
+	animation-fill-mode: forwards;
+}
+
+@media (width >= 960px) {
+	.fade-in-previous {
+		animation-name: fadeInPrevious;
+	}
+	
+	.fade-out-previous {
+		animation-name: fadeOutPrevious;
+	}
+	
+	.fade-in-next {
+		animation-name: fadeInNext;
+	}
+	
+	.fade-out-next {
+		animation-name: fadeOutNext;
+	}
+}

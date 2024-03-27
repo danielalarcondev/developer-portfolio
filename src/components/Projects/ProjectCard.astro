@@ -1,0 +1,78 @@
+---
+import Tag from '../Tag/Tag.astro';
+import ImagesCarousel from './ImagesCarousel.astro';
+import ViewButtons from './ViewButtons.astro';
+
+interface Props {
+	projectId: string;
+	projectTitle: string;
+	projectDescription: string[];
+	tags: string[];
+	desktopMedia: string[];
+	phoneMedia: string[];
+	liveLink?: string;
+	repositoryLink?: string;
+	isActive?: boolean;
+}
+
+const {
+	projectId,
+	projectTitle,
+	projectDescription,
+	tags,
+	desktopMedia,
+	phoneMedia,
+	liveLink,
+	repositoryLink,
+	isActive,
+} = Astro.props;
+---
+
+<div
+	class:list={[
+		'project',
+		`project-${projectId}`,
+		{ flex: isActive },
+		{ hidden: !isActive },
+		'flex-col',
+		'flex-1',
+		'gap-4',
+		'relative',
+	]}>
+	<div class:list={['flex', 'flex-col', 'gap-4']}>
+		<h1
+			class:list={[
+				'text-3xl',
+				'font-bold',
+				['text-primary-500', 'dark:text-primary-400'],
+			]}>
+			{projectTitle}
+		</h1>
+
+		<div class:list={['description', 'flex', 'flex-col', 'gap-4']}>
+			{projectDescription.map((description) => <p>{description}</p>)}
+		</div>
+
+		<ul class:list={['flex', 'flex-wrap', 'mb-1.5']}>
+			{
+				tags.map((tag: string) => (
+					<li>
+						<Tag text={tag} />
+					</li>
+				))
+			}
+		</ul>
+
+		<ViewButtons liveLink={liveLink} repositoryLink={repositoryLink} />
+
+		<div
+			class:list={[
+				'grid',
+				'grid-cols-[1fr] lg:grid-cols-[1fr_1fr]',
+				'gap-16',
+			]}>
+			<ImagesCarousel imagePaths={desktopMedia} />
+			<ImagesCarousel imagePaths={phoneMedia} />
+		</div>
+	</div>
+</div>

@@ -11,8 +11,10 @@ interface Props {
 <html
 	lang='en'
 	class:list={[
+		'scroll-smooth',
 		['bg-neutral-100', 'dark:bg-neutral-800'],
 		['text-neutral-800', 'dark:text-neutral-200'],
+		'scroll-pt-[7.70rem]',
 	]}>
 	<head>
 		<meta charset='UTF-8' />
@@ -31,7 +33,7 @@ interface Props {
 	</head>
 	<body
 		class:list={['max-w-screen-2xl', 'min-h-screen', 'w-auto', 'mx-auto']}>
-		<div class:list={['h-[250px]', 'w-full']}>
+		<div id='home' class:list={['h-[250px]', 'w-full']}>
 			<Header />
 		</div>
 		<div

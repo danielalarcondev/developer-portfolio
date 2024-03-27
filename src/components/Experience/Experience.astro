@@ -1,9 +1,25 @@
 ---
 import ExperienceCard from './ExperienceCard.astro';
+import ExperienceIcon from './ExperienceIcon.astro';
 ---
 
 <section class:list={['w-full', 'h-auto', 'flex', 'flex-col']}>
-	<h1 class:list={['text-2xl', 'p-6', 'font-bold']}>Commercial Experience</h1>
+	<div class:list={['w-full', 'h-auto', 'flex', 'gap-8', 'mb-4']}>
+		<div
+			class:list={[
+				'lg:ml-[6.5rem]',
+				'pl-6 lg:pl-0',
+				'flex',
+				'flex-0',
+				'justify-end',
+				'self-center',
+			]}>
+			<ExperienceIcon />
+		</div>
+		<h1 class:list={['text-5xl', 'font-bold', 'flex-1']}>
+			Commercial Experience
+		</h1>
+	</div>
 	<ExperienceCard
 		date='Jun 2022 - PRESENT'
 		title='Front-end Engineer'
@@ -28,7 +44,7 @@ import ExperienceCard from './ExperienceCard.astro';
 	<ExperienceCard
 		date='Dec 2020 - May 2022'
 		title='Software Engineer'
-		description=`Architecture Department, Develop and maintain framework used to build +300 applications. Plan and design architecture to migrate application from monolithic to microservices and independent front-end in a Node npm project. Design and development of mobile platform to run our applications in mobile devices (android and ios)`
+		description=`Architecture Department. Develop and maintain framework used to build +300 applications. Plan and design architecture to migrate application from monolithic to microservices and independent front-end in a Node npm project. Design and development of mobile platform to run our applications in mobile devices (android and ios)`
 		tags={[
 			'JavaScript',
 			'React',

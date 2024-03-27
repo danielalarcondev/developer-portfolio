@@ -2,10 +2,6 @@
 	svg {
 		transform: rotate(90deg);
 	}
-	
-	:global(body) {
-		background-color: green !important;
-	}
 }
 
 .menu-anchor {

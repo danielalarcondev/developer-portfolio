@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import Experience from '../components/Experience/Experience.astro';
 import Profile from '../components/Profile/Profile.astro';
+import Projects from '../components/Projects/Projects.astro';
 ---
 
 <Layout title='Home'>
@@ -9,15 +10,18 @@ import Profile from '../components/Profile/Profile.astro';
 		class:list={[
 			'grid',
 			'grid-cols-[1fr] md:grid-cols-[1fr_1.5fr] lg:grid-cols-[1fr_2.5fr]',
-			'gap-12',
+			'gap-16',
+			'mb-16',
 		]}>
 		<div class:list={['w-full']}>
 			<Profile />
 		</div>
-		<main class:list={['w-full']}>
+		<main id='experience' class:list={['w-full']}>
 			<Experience />
 		</main>
 
-		<div class:list={['w-full', 'h-auto', 'md:col-span-2']}></div>
+		<div class:list={['w-full', 'h-auto', 'md:col-span-2']}>
+			<Projects />
+		</div>
 	</div>
 </Layout>
