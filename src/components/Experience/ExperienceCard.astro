@@ -1,12 +1,6 @@
 ---
 import Tag from '../Tag/Tag.astro';
-
-interface Props {
-	date: string;
-	title: string;
-	description: string;
-	tags: string[];
-}
+import type { Experience as Props } from '../../data';
 
 const { date, title, description, tags } = Astro.props;
 ---

@@ -1,5 +1,12 @@
 ---
 import EmailModal from './EmailModal.astro';
+
+interface Props {
+	email: string;
+	linkedinLink: string;
+}
+
+const { email, linkedinLink } = Astro.props;
 ---
 
 <button
@@ -15,10 +22,7 @@ import EmailModal from './EmailModal.astro';
 	Email
 </button>
 
-<a
-	class:list={['w-full']}
-	target='_blank'
-	href='https://www.linkedin.com/in/daniel-alarc%C3%B3n-b85344169'>
+<a class:list={['w-full']} target='_blank' href={linkedinLink}>
 	<button
 		class:list={[
 			'w-full',
@@ -33,4 +37,4 @@ import EmailModal from './EmailModal.astro';
 	</button>
 </a>
 
-<EmailModal />
+<EmailModal email={email} />

@@ -5,31 +5,17 @@ import YahooIcon from './Icons/YahooIcon.astro';
 import CopyIcon from './Icons/CopyIcon.astro';
 
 import './EmailModal.css';
+
+interface Props {
+	email: string;
+}
+
+const { email } = Astro.props;
 ---
 
 <script>
-	const button = document.querySelector('.copy-icon') as HTMLElement;
-
-	const onCopyEmail = async () => {
-		try {
-			await navigator.clipboard.writeText(
-				'danielalarconcuesta@gmail.com'
-			);
-		} finally {
-			const emailButtonWrapper = document.querySelector(
-				'.email-button-wrapper'
-			) as HTMLElement;
-
-			console.log('emailButtonWrapper', emailButtonWrapper);
-			emailButtonWrapper?.classList.add('email-copied-animation');
-
-			setTimeout(() => {
-				emailButtonWrapper?.classList.remove('email-copied-animation');
-			}, 1500);
-		}
-	};
-
-	button?.addEventListener('click', onCopyEmail);
+	import { configureCopyEmail } from './helpers';
+	configureCopyEmail();
 </script>
 
 <div
@@ -382,8 +368,12 @@ import './EmailModal.css';
 							'cursor-default',
 							'text-neutral-500',
 						]}>
-						<span class:list={['select-all', 'cursor-text']}
-							>danielalarconcuesta@gmail.com</span
+						<span
+							class:list={[
+								'email-address',
+								'select-all',
+								'cursor-text',
+							]}>{email}</span
 						>
 						<CopyIcon />
 					</button>

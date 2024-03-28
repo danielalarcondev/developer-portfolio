@@ -2,106 +2,14 @@
 import ProjectCard from './ProjectCard.astro';
 import ProjectsNavigationButtons from './ProjectsNavigationButtons.astro';
 import ProjectsIcon from './ProjectsIcon.astro';
+import { PROJECTS } from '../../data';
 
 import './Projects.css';
 ---
 
 <script>
-	const FADE_TRANSITION_DURATION = 700;
-
-	const previousButton = document.querySelector(
-		'.projects-carousel-previous'
-	);
-	const nextButton = document.querySelector('.projects-carousel-next');
-	const numberOfProjects = document.querySelectorAll('.project').length;
-
-	let activeProject = 1;
-	let isPreviousTransitionOnGoing = false;
-	let isNextTransitionOnGoing = false;
-
-	previousButton?.addEventListener('click', () => {
-		if (isPreviousTransitionOnGoing || isNextTransitionOnGoing) {
-			return;
-		}
-
-		const nextActiveProject =
-			activeProject > 1 ? activeProject - 1 : numberOfProjects;
-
-		const currentProject = document.querySelector(
-			`.project-${activeProject}`
-		);
-		const previousProject = document.querySelector(
-			`.project-${nextActiveProject}`
-		);
-
-		if (!currentProject || !previousProject) {
-			return;
-		}
-
-		isPreviousTransitionOnGoing = true;
-
-		currentProject.classList.add('fade-out-previous');
-
-		setTimeout(() => {
-			currentProject.classList.remove('fade-out-previous');
-			currentProject.classList.add('hidden');
-
-			previousProject.classList.remove('hidden');
-			previousProject.classList.add('flex');
-			previousProject.classList.add('fade-in-previous');
-
-			setTimeout(() => {
-				previousProject.classList.remove('fade-in-previous');
-				previousProject.classList.remove('hidden');
-				previousProject.classList.add('flex');
-
-				isPreviousTransitionOnGoing = false;
-				activeProject = nextActiveProject;
-			}, FADE_TRANSITION_DURATION);
-		}, FADE_TRANSITION_DURATION);
-	});
-
-	nextButton?.addEventListener('click', () => {
-		if (isPreviousTransitionOnGoing || isNextTransitionOnGoing) {
-			return;
-		}
-
-		const nextActiveProject =
-			activeProject === numberOfProjects ? 1 : activeProject + 1;
-
-		const currentProject = document.querySelector(
-			`.project-${activeProject}`
-		);
-		const nextProject = document.querySelector(
-			`.project-${nextActiveProject}`
-		);
-
-		if (!currentProject || !nextProject) {
-			return;
-		}
-
-		isNextTransitionOnGoing = true;
-
-		currentProject.classList.add('fade-out-next');
-
-		setTimeout(() => {
-			currentProject.classList.remove('fade-out-next');
-			currentProject.classList.add('hidden');
-
-			nextProject.classList.remove('hidden');
-			nextProject.classList.add('flex');
-			nextProject.classList.add('fade-in-next');
-
-			setTimeout(() => {
-				nextProject.classList.remove('fade-in-next');
-				nextProject.classList.remove('hidden');
-				nextProject.classList.add('flex');
-
-				isNextTransitionOnGoing = false;
-				activeProject = nextActiveProject;
-			}, FADE_TRANSITION_DURATION);
-		}, FADE_TRANSITION_DURATION);
-	});
+	import { configureProjectsNavigation } from './helpers';
+	configureProjectsNavigation();
 </script>
 
 <section
@@ -131,82 +39,31 @@ import './Projects.css';
 		</h1>
 	</div>
 
-	<ProjectCard
-		projectId='1'
-		projectTitle='Project Title'
-		projectDescription={[
-			'Duis minim id cupidatat ad dolore enim tempor ea dolore quis. Anim dolore veniam amet elit do adipisicing veniam magna culpa labore irure nulla magna. Sit cupidatat cillum anim dolor adipisicing consectetur. Sint minim enim incididunt est ex voluptate ut nisi sunt quis. Labore duis excepteur et pariatur officia exercitation esse ipsum fugiat. Duis minim id cupidatat ad dolore enim tempor ea dolore quis. Anim dolore veniam amet elit do adipisicing veniam magna culpa labore irure nulla magna. Sit cupidatat cillum anim dolor adipisicing consectetur. Sint minim enim incididunt est ex voluptate ut nisi sunt quis. Labore duis excepteur et pariatur officia exercitation esse ipsum fugiat.',
-			'Duis minim id cupidatat ad dolore enim tempor ea dolore quis. Anim dolore veniam amet elit do adipisicing veniam magna culpa labore irure nulla magna. Sit cupidatat cillum anim dolor adipisicing consectetur. Sint minim enim incididunt est ex voluptate ut nisi sunt quis. Labore duis excepteur et pariatur officia exercitation esse ipsum fugiat. Duis minim id cupidatat ad dolore enim tempor ea dolore quis. Anim dolore veniam amet elit do adipisicing veniam magna culpa labore irure nulla magna. Sit cupidatat cillum anim dolor adipisicing consectetur. Sint minim enim incididunt est ex voluptate ut nisi sunt quis. Labore duis excepteur et pariatur officia exercitation esse ipsum fugiat.',
-		]}
-		tags={[
-			'JavaScript',
-			'Typescript',
-			'React',
-			'Sass',
-			'Redux',
-			'Redux-sagas',
-			'Webpack',
-			'Html',
-			'Css',
-			'Jest',
-			'Cypress',
-		]}
-		desktopMedia={['/demo.gif', '/demo.gif', '/demo.gif']}
-		phoneMedia={['/demo.gif', '/demo.gif', '/demo.gif']}
-		liveLink={'https://google.com'}
-		repositoryLink={'https://google.com'}
-		isActive={true}
-	/>
-
-	<ProjectCard
-		projectId='2'
-		projectTitle='Project Title 2'
-		projectDescription={[
-			'Duis minim id cupidatat ad dolore enim tempor ea dolore quis. Anim dolore veniam amet elit do adipisicing veniam magna culpa labore irure nulla magna. Sit cupidatat cillum anim dolor adipisicing consectetur. Sint minim enim incididunt est ex voluptate ut nisi sunt quis. Labore duis excepteur et pariatur officia exercitation esse ipsum fugiat. Duis minim id cupidatat ad dolore enim tempor ea dolore quis. Anim dolore veniam amet elit do adipisicing veniam magna culpa labore irure nulla magna. Sit cupidatat cillum anim dolor adipisicing consectetur. Sint minim enim incididunt est ex voluptate ut nisi sunt quis. Labore duis excepteur et pariatur officia exercitation esse ipsum fugiat.',
-			'Duis minim id cupidatat ad dolore enim tempor ea dolore quis. Anim dolore veniam amet elit do adipisicing veniam magna culpa labore irure nulla magna. Sit cupidatat cillum anim dolor adipisicing consectetur. Sint minim enim incididunt est ex voluptate ut nisi sunt quis. Labore duis excepteur et pariatur officia exercitation esse ipsum fugiat. Duis minim id cupidatat ad dolore enim tempor ea dolore quis. Anim dolore veniam amet elit do adipisicing veniam magna culpa labore irure nulla magna. Sit cupidatat cillum anim dolor adipisicing consectetur. Sint minim enim incididunt est ex voluptate ut nisi sunt quis. Labore duis excepteur et pariatur officia exercitation esse ipsum fugiat.',
-		]}
-		tags={[
-			'JavaScript',
-			'Typescript',
-			'React',
-			'Sass',
-			'Redux',
-			'Redux-sagas',
-			'Webpack',
-			'Html',
-			'Css',
-			'Jest',
-			'Cypress',
-		]}
-		desktopMedia={['/demo.gif', '/demo.gif', '/demo.gif']}
-		phoneMedia={['/demo.gif', '/demo.gif', '/demo.gif']}
-		liveLink={'https://google.com'}
-		repositoryLink={'https://google.com'}
-	/>
-
-	<ProjectCard
-		projectId='3'
-		projectTitle='Project Title 3'
-		projectDescription={[
-			'Duis minim id cupidatat ad dolore enim tempor ea dolore quis. Anim dolore veniam amet elit do adipisicing veniam magna culpa labore irure nulla magna. Sit cupidatat cillum anim dolor adipisicing consectetur. Sint minim enim incididunt est ex voluptate ut nisi sunt quis. Labore duis excepteur et pariatur officia exercitation esse ipsum fugiat. Duis minim id cupidatat ad dolore enim tempor ea dolore quis. Anim dolore veniam amet elit do adipisicing veniam magna culpa labore irure nulla magna. Sit cupidatat cillum anim dolor adipisicing consectetur. Sint minim enim incididunt est ex voluptate ut nisi sunt quis. Labore duis excepteur et pariatur officia exercitation esse ipsum fugiat.',
-			'Duis minim id cupidatat ad dolore enim tempor ea dolore quis. Anim dolore veniam amet elit do adipisicing veniam magna culpa labore irure nulla magna. Sit cupidatat cillum anim dolor adipisicing consectetur. Sint minim enim incididunt est ex voluptate ut nisi sunt quis. Labore duis excepteur et pariatur officia exercitation esse ipsum fugiat. Duis minim id cupidatat ad dolore enim tempor ea dolore quis. Anim dolore veniam amet elit do adipisicing veniam magna culpa labore irure nulla magna. Sit cupidatat cillum anim dolor adipisicing consectetur. Sint minim enim incididunt est ex voluptate ut nisi sunt quis. Labore duis excepteur et pariatur officia exercitation esse ipsum fugiat.',
-		]}
-		tags={[
-			'JavaScript',
-			'Typescript',
-			'React',
-			'Sass',
-			'Redux',
-			'Redux-sagas',
-			'Webpack',
-			'Html',
-			'Css',
-			'Jest',
-			'Cypress',
-		]}
-		desktopMedia={['/demo.gif', '/demo.gif', '/demo.gif']}
-		phoneMedia={['/demo.gif', '/demo.gif', '/demo.gif']}
-		liveLink={'https://google.com'}
-		repositoryLink={'https://google.com'}
-	/>
+	{
+		PROJECTS.map(
+			({
+				projectId,
+				title,
+				description,
+				tags,
+				desktopMedia,
+				phoneMedia,
+				liveLink,
+				repositoryLink,
+				isActive,
+			}) => (
+				<ProjectCard
+					projectId={projectId}
+					title={title}
+					description={description}
+					tags={tags}
+					desktopMedia={desktopMedia}
+					phoneMedia={phoneMedia}
+					liveLink={liveLink}
+					repositoryLink={repositoryLink}
+					isActive={isActive}
+				/>
+			)
+		)
+	}
 </section>

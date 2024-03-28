@@ -1,7 +1,6 @@
 ---
 import LocationIcon from './Icons/LocationIcon.astro';
-import SpanishIcon from './Icons/SpanishIcon.astro';
-import EnglishIcon from './Icons/EnglishIcon.astro';
+import CountryFlag from './CountryFlag.astro';
 import JavascriptIcon from './Icons/JavascriptIcon.astro';
 import TypescriptIcon from './Icons/TypescriptIcon.astro';
 import HtmlIcon from './Icons/HtmlIcon.astro';
@@ -16,6 +15,19 @@ import NextIcon from './Icons/NextIcon.astro';
 import AstroIcon from './Icons/AstroIcon.astro';
 
 import ContactMe from './ContactMe/ContactMe.astro';
+import { Tool } from '../../types';
+import { PROFILE } from '../../data';
+
+const {
+	name,
+	position,
+	location,
+	languages,
+	aboutMe,
+	email,
+	linkedinLink,
+	tools,
+} = PROFILE;
 ---
 
 <section
@@ -33,10 +45,10 @@ import ContactMe from './ContactMe/ContactMe.astro';
 		'rounded-sm',
 		[
 			'outline-neutral-300 hover:outline-primary-500',
-			'dark:hover:outline-primary-500',
+			'dark:hover:outline-transparent',
 		],
 		'hover:shadow-lg',
-		['bg-white', 'dark:bg-neutral-200'],
+		['bg-white', 'dark:bg-neutral-300'],
 	]}>
 	<article
 		class:list={[
@@ -54,14 +66,14 @@ import ContactMe from './ContactMe/ContactMe.astro';
 
 		<div class:list={['text-center']}>
 			<h1 class:list={['text-2xl', 'text-neutral-700']}>
-				Daniel Alarcón
+				{name}
 			</h1>
 			<p
 				class:list={[
 					'text-sm',
-					['text-neutral-400', 'dark:text-neutral-500'],
+					['text-neutral-400', 'dark:text-neutral-600'],
 				]}>
-				Software Engineer
+				{position}
 			</p>
 			<div
 				class:list={[
@@ -76,63 +88,64 @@ import ContactMe from './ContactMe/ContactMe.astro';
 					class:list={[
 						'text-sm',
 						'align-bottom',
-						['text-neutral-400', 'dark:text-neutral-500'],
+						['text-neutral-400', 'dark:text-neutral-600'],
 					]}>
-					Frisco TX
+					{location.city}
 				</p>
 				<p
 					class:list={[
 						'text-sm',
 						'align-bottom',
-						['text-neutral-400', 'dark:text-neutral-500'],
+						['text-neutral-400', 'dark:text-neutral-600'],
 					]}>
-					United States
+					{location.country}
 				</p>
 			</div>
 		</div>
 	</article>
 
 	<article class:list={['flex', 'justify-center', 'flex-col', 'gap-[13px]']}>
-		<ContactMe />
+		<ContactMe email={email} linkedinLink={linkedinLink} />
 	</article>
 
 	<article
 		class:list={[
 			'border',
 			'rounded-sm p-4',
-			'border-neutral-300 hover:border-secondary-300',
+			[
+				'border-neutral-300 hover:border-secondary-300',
+				'dark:hover:border-secondary-500',
+			],
 		]}>
 		<p class:list={['text-base', 'font-bold', 'dark:text-neutral-900']}>
 			Languages
 		</p>
-		<hr class:list={['mt-1', 'mb-[0.5rem]', '-ml-1']} />
+		<hr
+			class:list={[
+				'mt-1',
+				'mb-[0.5rem]',
+				'-ml-1',
+				'dark:border-neutral-500',
+			]}
+		/>
 		<div>
-			<div>
-				<EnglishIcon />
-				<p
-					class:list={[
-						'inline',
-						'align-',
-						'mr-[4px]',
-						'text-neutral-700',
-						'text-sm',
-					]}>
-					English
-				</p>
-			</div>
-
-			<div>
-				<SpanishIcon />
-				<p
-					class:list={[
-						'inline',
-						'align-bottom',
-						'text-neutral-700',
-						'text-sm',
-					]}>
-					Spanish
-				</p>
-			</div>
+			{
+				languages.map((language) => (
+					<div>
+						<CountryFlag country={language} />
+						<p
+							class:list={[
+								'inline',
+								'align-',
+								'mr-[4px]',
+								'text-neutral-700',
+								'text-sm',
+							]}>
+							{language}
+						</p>
+					</div>
+				))
+			}
 		</div>
 	</article>
 
@@ -141,43 +154,42 @@ import ContactMe from './ContactMe/ContactMe.astro';
 			'border',
 			'rounded-sm',
 			'p-4',
-			'border-neutral-300 hover:border-secondary-300',
+			[
+				'border-neutral-300 hover:border-secondary-300',
+				'dark:hover:border-secondary-500',
+			],
 		]}>
 		<p class:list={['text-base', 'font-bold', 'dark:text-neutral-900']}>
 			About me
 		</p>
-		<hr class:list={['mt-1', 'mb-[0.5rem]', '-ml-1']} />
+		<hr
+			class:list={[
+				'mt-1',
+				'mb-[0.5rem]',
+				'-ml-1',
+				'dark:border-neutral-500',
+			]}
+		/>
 		<div class:list={['flex', 'flex-col', 'gap-4 ', 'text-neutral-700']}>
-			<p class:list={['text-sm']}>
-				I'm passionate about building products on the web, especialized
-				in the Front-end with over 5 years of commerical experience.
-			</p>
-
-			<p class:list={['text-sm']}>
-				My strongest tech skills are the solid knowledge of the
-				front-end stack (JavaScript, CSS. HTML), which gives me the base
-				to learn, use, an be quickly productive with the javascript
-				ecosystem and all the tools necessary to bridge the gap between
-				data/API and UI/UX design and create user-friendly and accesible
-				products.
-			</p>
-
 			{
-				/* IDEA: the svgs should be a link to official place of the technology */
+				aboutMe.map((paragraph) => (
+					<p class:list={['text-sm']}>{paragraph}</p>
+				))
 			}
+
 			<div class:list={['flex gap-2', 'flex-wrap']}>
-				<JavascriptIcon />
-				<TypescriptIcon />
-				<HtmlIcon />
-				<Css3Icon />
-				<SassIcon />
-				<ReactIcon />
-				<ReduxIcon />
-				<AngularIcon />
-				<NodeIcon />
-				<NestIcon />
-				<NextIcon />
-				<AstroIcon />
+				{tools.has(Tool.JAVASCRIPT) && <JavascriptIcon />}
+				{tools.has(Tool.TYPESCRIPT) && <TypescriptIcon />}
+				{tools.has(Tool.HTML) && <HtmlIcon />}
+				{tools.has(Tool.CSS) && <Css3Icon />}
+				{tools.has(Tool.SASS) && <SassIcon />}
+				{tools.has(Tool.REACT) && <ReactIcon />}
+				{tools.has(Tool.REDUX) && <ReduxIcon />}
+				{tools.has(Tool.ANGULAR) && <AngularIcon />}
+				{tools.has(Tool.NODE) && <NodeIcon />}
+				{tools.has(Tool.NEST_JS) && <NestIcon />}
+				{tools.has(Tool.NEXT_JS) && <NextIcon />}
+				{tools.has(Tool.ASTRO_BUILD) && <AstroIcon />}
 			</div>
 		</div>
 	</article>

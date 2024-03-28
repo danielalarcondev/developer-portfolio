@@ -1,92 +1,16 @@
 ---
 import './Header.css';
+import DarkIcon from './Icons/DarkIcon.astro';
+import LightIcon from './Icons/LightIcon.astro';
+
 const TRANSPARENT_WITH_OPACITY = 'bg-transparent/10';
 ---
 
 <script>
-	/* Variables */
-	const PRIMARY_COLOR = 'bg-primary-700';
-	const TRANSPARENT = 'bg-transparent';
-	const TRANSPARENT_WITH_OPACITY = 'bg-transparent/10';
+	import { handleThemeConfiguration, configureMenu } from './helpers.ts';
 
-	const subheader = document.querySelector('.subheader') as HTMLElement;
-	const button = document.querySelector('.menu-button') as HTMLElement;
-	const ul = document.querySelector('.menu-ul') as HTMLElement;
-	const nav = document.querySelector('.menu-nav') as HTMLElement;
-	const menuButtons = document.querySelectorAll('.menu-anchor');
-
-	let isMenuOpen = false;
-	let intersectionObserverOptions = {
-		root: null,
-		threshold: 1.0,
-	};
-
-	/* Intersection Observer */
-	const handleSubheaderIsVisible = () => {
-		nav?.classList.remove(PRIMARY_COLOR);
-		nav?.classList.add(TRANSPARENT_WITH_OPACITY);
-
-		if (!isMenuOpen) {
-			ul?.classList.remove(PRIMARY_COLOR);
-			ul?.classList.add(TRANSPARENT);
-		}
-	};
-
-	const handleSubheaderIsNotVisible = () => {
-		nav?.classList.remove(TRANSPARENT_WITH_OPACITY);
-		ul?.classList.remove(TRANSPARENT);
-
-		nav?.classList.add(PRIMARY_COLOR);
-		ul?.classList.add(PRIMARY_COLOR);
-	};
-
-	const handleScroll = ([entry]: IntersectionObserverEntry[]) => {
-		const isSubheaderVisible = entry?.isIntersecting;
-
-		if (isSubheaderVisible) {
-			handleSubheaderIsVisible();
-			return;
-		}
-
-		handleSubheaderIsNotVisible();
-	};
-
-	let observer = new IntersectionObserver(
-		handleScroll,
-		intersectionObserverOptions
-	);
-
-	if (subheader && observer) {
-		observer.observe(subheader);
-	}
-
-	/* Events - Menu Button */
-	button?.addEventListener('click', () => {
-		isMenuOpen = !isMenuOpen;
-
-		if (isMenuOpen) {
-			ul?.classList.remove(TRANSPARENT);
-			ul?.classList.add(PRIMARY_COLOR);
-		} else {
-			ul?.classList.remove(PRIMARY_COLOR);
-			ul?.classList.add(TRANSPARENT);
-		}
-	});
-
-	const closeMenu = () => {
-		if (isMenuOpen) {
-			button?.click();
-		}
-	};
-
-	/* Resize Observer */
-	new ResizeObserver(() => {
-		closeMenu();
-	}).observe(document.body);
-
-	menuButtons.forEach((button) => {
-		button.addEventListener('click', closeMenu);
-	});
+	configureMenu();
+	handleThemeConfiguration();
 </script>
 
 <header class:list={['w-full']}>
@@ -115,9 +39,10 @@ const TRANSPARENT_WITH_OPACITY = 'bg-transparent/10';
 			'z-20',
 			'border-b',
 			'border-gray-200',
+			'flex',
 			TRANSPARENT_WITH_OPACITY,
 		]}>
-		<div class:list={['h-full', 'flex', 'flex-wrap']}>
+		<div class:list={['h-full', 'flex', 'flex-wrap', 'flex-1']}>
 			<div
 				class:list={[
 					'flex',
@@ -164,7 +89,6 @@ const TRANSPARENT_WITH_OPACITY = 'bg-transparent/10';
 					'w-full md:w-auto',
 					'h-full',
 					'items-center',
-					'justify-center',
 					'hidden',
 					'md:order-1',
 				]}
@@ -173,6 +97,7 @@ const TRANSPARENT_WITH_OPACITY = 'bg-transparent/10';
 					class:list={[
 						'menu-ul',
 						'flex',
+						'flex-1',
 						'flex-col md:flex-row',
 						'p-4 md:p-0',
 						'mt-4 mr-10 md:mt-0',
@@ -183,6 +108,8 @@ const TRANSPARENT_WITH_OPACITY = 'bg-transparent/10';
 						'md:space-x-8',
 						'rtl:space-x-reverse',
 						'bg-transparent',
+						'ml-32',
+						'justify-center',
 					]}>
 					{
 						[
@@ -222,6 +149,44 @@ const TRANSPARENT_WITH_OPACITY = 'bg-transparent/10';
 						))
 					}
 				</ul>
+				<label
+					class:list={[
+						'inline-flex',
+						'items-center',
+						'cursor-pointer',
+						'w-32',
+					]}>
+					<div class:list={['mr-2']}>
+						<LightIcon />
+					</div>
+					<input
+						type='checkbox'
+						value=''
+						class:list={['theme-switcher', 'sr-only', 'peer']}
+					/>
+					<div
+						class:list={[
+							'relative',
+							'w-11 after:w-5',
+							'h-6 after:h-5',
+							'bg-gray-200 peer-checked:bg-secondary-500',
+							'rounded-full',
+							'peer-checked:after:translate-x-full',
+							'rtl:peer-checked:after:-translate-x-full',
+							'peer-checked:after:border-white after:content-[""]',
+							'after:absolute after:top-[2px]',
+							'after:start-[2px]',
+							'after:bg-white',
+							'after:border-gray-300',
+							'after:border',
+							'after:rounded-full',
+							'after:transition-all',
+						]}>
+					</div>
+					<div class:list={['ml-2']}>
+						<DarkIcon />
+					</div>
+				</label>
 			</div>
 		</div>
 	</nav>

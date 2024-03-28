@@ -1,0 +1,16 @@
+---
+import EnglishIcon from './Icons/EnglishIcon.astro';
+import SpanishIcon from './Icons/SpanishIcon.astro';
+import { Language } from '../../types/';
+import NeutralFlagIcon from './Icons/NeutralFlagIcon.astro';
+
+interface Props {
+	country: Language;
+}
+
+const { country } = Astro.props;
+---
+
+{country === Language.SPANISH && <SpanishIcon />}
+{country === Language.ENGLISH && <EnglishIcon />}
+{country === Language.UNKNOWN && <NeutralFlagIcon />}

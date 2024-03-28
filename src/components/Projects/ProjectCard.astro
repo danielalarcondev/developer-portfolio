@@ -2,23 +2,12 @@
 import Tag from '../Tag/Tag.astro';
 import ImagesCarousel from './ImagesCarousel.astro';
 import ViewButtons from './ViewButtons.astro';
-
-interface Props {
-	projectId: string;
-	projectTitle: string;
-	projectDescription: string[];
-	tags: string[];
-	desktopMedia: string[];
-	phoneMedia: string[];
-	liveLink?: string;
-	repositoryLink?: string;
-	isActive?: boolean;
-}
+import type { Project as Props } from '../../data';
 
 const {
 	projectId,
-	projectTitle,
-	projectDescription,
+	title,
+	description,
 	tags,
 	desktopMedia,
 	phoneMedia,
@@ -46,11 +35,11 @@ const {
 				'font-bold',
 				['text-primary-500', 'dark:text-primary-400'],
 			]}>
-			{projectTitle}
+			{title}
 		</h1>
 
 		<div class:list={['description', 'flex', 'flex-col', 'gap-4']}>
-			{projectDescription.map((description) => <p>{description}</p>)}
+			{description.map((description) => <p>{description}</p>)}
 		</div>
 
 		<ul class:list={['flex', 'flex-wrap', 'mb-1.5']}>
