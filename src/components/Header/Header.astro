@@ -42,7 +42,15 @@ const TRANSPARENT_WITH_OPACITY = 'bg-transparent/10';
 			'flex',
 			TRANSPARENT_WITH_OPACITY,
 		]}>
-		<div class:list={['h-full', 'flex', 'flex-wrap', 'flex-1']}>
+		<div
+			class:list={[
+				'h-full',
+				'flex',
+				'flex-wrap',
+				'flex-1',
+				'w-full',
+				'justify-between md:justify-normal',
+			]}>
 			<div
 				class:list={[
 					'flex',
@@ -100,7 +108,8 @@ const TRANSPARENT_WITH_OPACITY = 'bg-transparent/10';
 						'flex-1',
 						'flex-col md:flex-row',
 						'p-4 md:p-0',
-						'mt-4 mr-10 md:mt-0',
+						'mt-4 md:mt-0',
+						'mr-2 md:mr-0',
 						'font-medium',
 						'border md:border-0',
 						'border-gray-100',
@@ -108,7 +117,7 @@ const TRANSPARENT_WITH_OPACITY = 'bg-transparent/10';
 						'md:space-x-8',
 						'rtl:space-x-reverse',
 						'bg-transparent',
-						'ml-32',
+						'ml-none lg:ml-32',
 						'justify-center',
 					]}>
 					{
@@ -149,45 +158,46 @@ const TRANSPARENT_WITH_OPACITY = 'bg-transparent/10';
 						))
 					}
 				</ul>
-				<label
-					class:list={[
-						'inline-flex',
-						'items-center',
-						'cursor-pointer',
-						'w-32',
-					]}>
-					<div class:list={['mr-2']}>
-						<LightIcon />
-					</div>
-					<input
-						type='checkbox'
-						value=''
-						class:list={['theme-switcher', 'sr-only', 'peer']}
-					/>
-					<div
-						class:list={[
-							'relative',
-							'w-11 after:w-5',
-							'h-6 after:h-5',
-							'bg-gray-200 peer-checked:bg-secondary-500',
-							'rounded-full',
-							'peer-checked:after:translate-x-full',
-							'rtl:peer-checked:after:-translate-x-full',
-							'peer-checked:after:border-white after:content-[""]',
-							'after:absolute after:top-[2px]',
-							'after:start-[2px]',
-							'after:bg-white',
-							'after:border-gray-300',
-							'after:border',
-							'after:rounded-full',
-							'after:transition-all',
-						]}>
-					</div>
-					<div class:list={['ml-2']}>
-						<DarkIcon />
-					</div>
-				</label>
 			</div>
+			<label
+				class:list={[
+					'inline-flex',
+					'items-center',
+					'cursor-pointer',
+					'w-32',
+					'order-2',
+				]}>
+				<div class:list={['mr-2']}>
+					<LightIcon />
+				</div>
+				<input
+					type='checkbox'
+					value=''
+					class:list={['theme-switcher', 'sr-only', 'peer']}
+				/>
+				<div
+					class:list={[
+						'relative',
+						'w-11 after:w-5',
+						'h-6 after:h-5',
+						'bg-gray-200 peer-checked:bg-secondary-500',
+						'rounded-full',
+						'peer-checked:after:translate-x-full',
+						'rtl:peer-checked:after:-translate-x-full',
+						'peer-checked:after:border-white after:content-[""]',
+						'after:absolute after:top-[2px]',
+						'after:start-[2px]',
+						'after:bg-white',
+						'after:border-gray-300',
+						'after:border',
+						'after:rounded-full',
+						'after:transition-all',
+					]}>
+				</div>
+				<div class:list={['ml-2']}>
+					<DarkIcon />
+				</div>
+			</label>
 		</div>
 	</nav>
 </header>
