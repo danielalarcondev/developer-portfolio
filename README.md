@@ -2,17 +2,17 @@
 
 ## Set Up
 
-### 1. Install dependencies.
+### 1. Install dependencies
 
 -   Node Js: v18.14.1 or later.
 
-### 2. Run the following command in the project root.
+### 2. Run the following command in the project root
 
 ```sh
 pnpm i
 ```
 
-### 3. Prepare your data, examples are provided in each file, replace them with yours.
+### 3. Prepare your data, examples are provided in each file, replace them with yours
 
 ```text
 /
