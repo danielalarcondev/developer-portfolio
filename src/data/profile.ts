@@ -17,35 +17,25 @@ export interface Profile {
 	tools: Set<Tool>;
 }
 
-export const PROFILE = {
-	name: 'Daniel Alarcón',
-	position: 'Software Engineer',
+export const PROFILE: Profile = {
+	name: 'Your name',
+	position: 'Software Developer',
 	location: {
-		city: 'Frisco TX',
+		city: 'New York',
 		country: 'United States',
 	},
 	languages: [
-		Language.SPANISH,
-		Language.ENGLISH,
+		Language.ENGLISH
 	],
 	aboutMe: [
-		'I\'m passionate about building products on the web, specialized in the Front-end with over 5 years of commercial experience.',
-		'My strongest tech skills are the solid knowledge of the front-end stack (JavaScript, CSS. HTML), which gives me the base to learn, use, an be quickly productive with the javascript ecosystem and all the tools necessary to bridge the gap between data/API and UI/UX design and create user-friendly and accessible products.'
+		'Your summary. Labore commodo nostrud commodo exercitation fugiat laborum. Incididunt anim esse laborum irure fugiat est aliqua voluptate est. Cillum reprehenderit proident quis enim ex elit pariatur tempor consequat id laboris. Cupidatat dolor pariatur aliquip ea ad officia ipsum proident.'
 	],
-	email: 'danielalarconcuesta@gmail.com',
-	linkedinLink: 'https://www.linkedin.com/in/danielalarcon17',
+	email: 'youremail@gmail.com',
+	linkedinLink: 'https://www.linkedin.com/in/your-profile',
 	tools: new Set([
 		Tool.JAVASCRIPT,
 		Tool.TYPESCRIPT,
 		Tool.HTML,
 		Tool.CSS,
-		Tool.SASS,
-		Tool.REACT,
-		Tool.REDUX,
-		Tool.ANGULAR,
-		Tool.NODE,
-		Tool.NEST_JS,
-		Tool.NEXT_JS,
-		Tool.ASTRO_BUILD
 	])
 }

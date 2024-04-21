@@ -13,82 +13,20 @@ export interface Project {
 export const PROJECTS: Project[] = [
 	{
 		projectId: '1',
-		title: 'Project Title 1',
+		title: 'Project name',
 		description: [
-			'Duis minim id cupidatat ad dolore enim tempor ea dolore quis. Anim dolore veniam amet elit do adipisicing veniam magna culpa labore irure nulla magna. Sit cupidatat cillum anim dolor adipisicing consectetur. Sint minim enim incididunt est ex voluptate ut nisi sunt quis. Labore duis excepteur et pariatur officia exercitation esse ipsum fugiat. Duis minim id cupidatat ad dolore enim tempor ea dolore quis. Anim dolore veniam amet elit do adipisicing veniam magna culpa labore irure nulla magna. Sit cupidatat cillum anim dolor adipisicing consectetur. Sint minim enim incididunt est ex voluptate ut nisi sunt quis. Labore duis excepteur et pariatur officia exercitation esse ipsum fugiat.',
-			'Duis minim id cupidatat ad dolore enim tempor ea dolore quis. Anim dolore veniam amet elit do adipisicing veniam magna culpa labore irure nulla magna. Sit cupidatat cillum anim dolor adipisicing consectetur. Sint minim enim incididunt est ex voluptate ut nisi sunt quis. Labore duis excepteur et pariatur officia exercitation esse ipsum fugiat. Duis minim id cupidatat ad dolore enim tempor ea dolore quis. Anim dolore veniam amet elit do adipisicing veniam magna culpa labore irure nulla magna. Sit cupidatat cillum anim dolor adipisicing consectetur. Sint minim enim incididunt est ex voluptate ut nisi sunt quis. Labore duis excepteur et pariatur officia exercitation esse ipsum fugiat.',
+			"Description of the project. Laboris aliquip Lorem sunt voluptate magna tempor proident adipisicing Lorem esse esse minim tempor ullamco. Sit sunt Lorem ex mollit quis occaecat veniam. Aliquip magna laboris labore commodo irure qui non sit. Ea aute ad ex minim magna consectetur exercitation pariatur non et eiusmod. Aute aliquip fugiat nostrud labore ut cillum non consequat quis minim elit nulla nulla voluptate. Pariatur pariatur sint duis voluptate ut non proident consectetur aliqua. Mollit consequat cupidatat eu reprehenderit aliqua ad ad quis mollit ut labore aute."
 		],
 		tags: [
 			'JavaScript',
-			'Typescript',
-			'React',
-			'Sass',
-			'Redux',
-			'Redux-sagas',
-			'Webpack',
 			'Html',
 			'Css',
-			'Jest',
-			'Cypress',
+			'Tailwind',
 		],
-		desktopMedia: ['/demo.gif', '/demo.gif', '/demo.gif'],
-		phoneMedia: ['/demo.gif', '/demo.gif', '/demo.gif'],
+		desktopMedia: ['/demo/desktop.mp4'],
+		phoneMedia: ['/demo/phone.mp4'],
 		liveLink: 'https://google.com',
-		repositoryLink: 'https://google.com',
-		isActive: true
-	},
-
-	{
-		projectId: '2',
-		title: 'Project Title 2',
-		description: [
-			'Duis minim id cupidatat ad dolore enim tempor ea dolore quis. Anim dolore veniam amet elit do adipisicing veniam magna culpa labore irure nulla magna. Sit cupidatat cillum anim dolor adipisicing consectetur. Sint minim enim incididunt est ex voluptate ut nisi sunt quis. Labore duis excepteur et pariatur officia exercitation esse ipsum fugiat. Duis minim id cupidatat ad dolore enim tempor ea dolore quis. Anim dolore veniam amet elit do adipisicing veniam magna culpa labore irure nulla magna. Sit cupidatat cillum anim dolor adipisicing consectetur. Sint minim enim incididunt est ex voluptate ut nisi sunt quis. Labore duis excepteur et pariatur officia exercitation esse ipsum fugiat.',
-			'Duis minim id cupidatat ad dolore enim tempor ea dolore quis. Anim dolore veniam amet elit do adipisicing veniam magna culpa labore irure nulla magna. Sit cupidatat cillum anim dolor adipisicing consectetur. Sint minim enim incididunt est ex voluptate ut nisi sunt quis. Labore duis excepteur et pariatur officia exercitation esse ipsum fugiat. Duis minim id cupidatat ad dolore enim tempor ea dolore quis. Anim dolore veniam amet elit do adipisicing veniam magna culpa labore irure nulla magna. Sit cupidatat cillum anim dolor adipisicing consectetur. Sint minim enim incididunt est ex voluptate ut nisi sunt quis. Labore duis excepteur et pariatur officia exercitation esse ipsum fugiat.',
-		],
-		tags: [
-			'JavaScript',
-			'Typescript',
-			'React',
-			'Sass',
-			'Redux',
-			'Redux-sagas',
-			'Webpack',
-			'Html',
-			'Css',
-			'Jest',
-			'Cypress',
-		],
-		desktopMedia: ['/demo.gif', '/demo.gif', '/demo.gif'],
-		phoneMedia: ['/demo.gif', '/demo.gif', '/demo.gif'],
-		liveLink: 'https://google.com',
-		repositoryLink: 'https://google.com',
-		isActive: true
-	},
-
-	{
-		projectId: '3',
-		title: 'Project Title 3',
-		description: [
-			'Duis minim id cupidatat ad dolore enim tempor ea dolore quis. Anim dolore veniam amet elit do adipisicing veniam magna culpa labore irure nulla magna. Sit cupidatat cillum anim dolor adipisicing consectetur. Sint minim enim incididunt est ex voluptate ut nisi sunt quis. Labore duis excepteur et pariatur officia exercitation esse ipsum fugiat. Duis minim id cupidatat ad dolore enim tempor ea dolore quis. Anim dolore veniam amet elit do adipisicing veniam magna culpa labore irure nulla magna. Sit cupidatat cillum anim dolor adipisicing consectetur. Sint minim enim incididunt est ex voluptate ut nisi sunt quis. Labore duis excepteur et pariatur officia exercitation esse ipsum fugiat.',
-			'Duis minim id cupidatat ad dolore enim tempor ea dolore quis. Anim dolore veniam amet elit do adipisicing veniam magna culpa labore irure nulla magna. Sit cupidatat cillum anim dolor adipisicing consectetur. Sint minim enim incididunt est ex voluptate ut nisi sunt quis. Labore duis excepteur et pariatur officia exercitation esse ipsum fugiat. Duis minim id cupidatat ad dolore enim tempor ea dolore quis. Anim dolore veniam amet elit do adipisicing veniam magna culpa labore irure nulla magna. Sit cupidatat cillum anim dolor adipisicing consectetur. Sint minim enim incididunt est ex voluptate ut nisi sunt quis. Labore duis excepteur et pariatur officia exercitation esse ipsum fugiat.',
-		],
-		tags: [
-			'JavaScript',
-			'Typescript',
-			'React',
-			'Sass',
-			'Redux',
-			'Redux-sagas',
-			'Webpack',
-			'Html',
-			'Css',
-			'Jest',
-			'Cypress',
-		],
-		desktopMedia: ['/demo.gif', '/demo.gif', '/demo.gif'],
-		phoneMedia: ['/demo.gif', '/demo.gif', '/demo.gif'],
-		liveLink: 'https://google.com',
-		repositoryLink: 'https://google.com',
+		repositoryLink: 'https://github.com/',
 		isActive: true
 	}
 ]

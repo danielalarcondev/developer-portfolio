@@ -7,58 +7,14 @@ export interface Experience {
 
 export const EXPERIENCES: Experience[] = [
 	{
-		date: 'Jun 2022 - PRESENT',
-		title: 'Front-end Engineer',
-		description: 'Delivering a rich front-end and user experience through clear and refined interfaces, functionality that empowers our customers through our powerful no-code development platform to build robust applications easily',
+		date: 'Jan 2020 - PRESENT',
+		title: 'Front-end Developer',
+		description: 'Description of the role. Cillum tempor irure elit ipsum sit ad. Sint proident consectetur esse sint. Cillum sunt labore sint ut ex cillum est est quis elit sit sit. Proident et aliquip nostrud irure pariatur pariatur. Ex commodo ut do et duis ea quis non voluptate ut incididunt. Anim sit laborum nostrud laboris et laborum exercitation id eu tempor.',
 		tags: [
 			'JavaScript',
 			'Typescript',
 			'React',
-			'Redux',
-			'Redux-Saga',
-			'Html 5',
-			'Css 3',
-			'Sass',
-			'NX',
-			'Jest',
-			'Cypress',
-			'Webpack',
 			'Git',
-		]
-	},
-	{
-		date: 'Dec 2020 - May 2022',
-		title: 'Software Engineer',
-		description: `Architecture Department. Develop and maintain framework used to build +300 applications. Plan and design architecture to migrate application from monolithic to microservices and independent front-end in a Node npm project. Design and development of mobile platform to run our applications in mobile devices (android and ios)`,
-		tags: [
-			'JavaScript',
-			'React',
-			'Sencha Ext-Js',
-			'Html 5',
-			'Css 3',
-			'Jest',
-			'Selenium',
-			'Webpack',
-			'Node Js',
-			'Ionic',
-			'Git',
-		]
-	},
-	{
-		date: 'Mar 2019 - Nov 2020',
-		title: 'Full Stack Developer',
-		description: `Working on a full software solution for the digital transformation, management and security of the pharmacy stores. Implement new features to meet new regulations. Offering solutions to pharmacies for their work activities`,
-		tags: [
-			'JavaScript',
-			'Angular',
-			'Sencha Ext-Js',
-			'Html 5',
-			'Css 3',
-			'Java',
-			'Spring',
-			'SQL',
-			'Hibernate',
-			'Subvsersion SVN',
 		]
 	}
 ]

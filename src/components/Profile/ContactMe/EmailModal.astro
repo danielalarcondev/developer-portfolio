@@ -114,7 +114,7 @@ const { email } = Astro.props;
 					<li>
 						<a
 							target='_blank'
-							href='https://mail.google.com/mail/u/1/?view=cm&to=danielalarconcuesta@gmail.com'
+							href=`https://mail.google.com/mail/u/1/?view=cm&to=${email}`
 							class:list={[
 								'w-full',
 								'p-5',
@@ -196,7 +196,7 @@ const { email } = Astro.props;
 					<li>
 						<a
 							target='_blank'
-							href='https://outlook.live.com/mail/0/deeplink/compose?popoutv2=1&to=danielalarconcuesta@gmail.com'
+							href=`https://outlook.live.com/mail/0/deeplink/compose?popoutv2=1&to=${email}`
 							class:list={[
 								'w-full',
 								'p-5',
@@ -277,7 +277,7 @@ const { email } = Astro.props;
 					<li>
 						<a
 							target='_blank'
-							href='https://compose.mail.yahoo.com/?to=danielalarconcuesta@gmail.com'
+							href=`https://compose.mail.yahoo.com/?to=${email}`
 							class:list={[
 								'w-full',
 								'p-5',
