@@ -19,6 +19,8 @@ import { Tool } from '../../types';
 import { PROFILE } from '../../data';
 
 const {
+	photoPath,
+	photoAlt,
 	name,
 	position,
 	location,
@@ -60,8 +62,8 @@ const {
 		]}>
 		<img
 			class:list={['w-auto', 'h-44', 'rounded-full']}
-			src='/profile.jpeg'
-			alt='A portrait of Daniel Alarcón'
+			src={photoPath}
+			alt={photoAlt}
 		/>
 
 		<div class:list={['text-center']}>

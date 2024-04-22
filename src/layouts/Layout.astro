@@ -2,9 +2,13 @@
 import '@fontsource-variable/onest';
 import Header from '../components/Header/Header.astro';
 
+import { METADATA } from '../data';
+
 interface Props {
 	title: string;
 }
+
+const { pageDescription, pageTitle } = METADATA;
 ---
 
 <!doctype html>
@@ -18,14 +22,11 @@ interface Props {
 	]}>
 	<head>
 		<meta charset='UTF-8' />
-		<meta
-			name='description'
-			content='Portfolio of Daniel Alarcón, Software Engineer specialized in the web'
-		/>
+		<meta name='description' content={pageDescription} />
 		<meta name='viewport' content='width=device-width' />
 		<!-- <link rel="icon" type="image/svg+xml" href="/favicon.svg" /> -->
 		<meta name='generator' content={Astro.generator} />
-		<title>Daniel Alarcón - Software Engineer</title>
+		<title>{pageTitle}</title>
 		<script
 			is:inline
 			src='https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.0/flowbite.min.js'

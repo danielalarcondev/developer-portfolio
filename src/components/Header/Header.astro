@@ -3,7 +3,10 @@ import './Header.css';
 import DarkIcon from './Icons/DarkIcon.astro';
 import LightIcon from './Icons/LightIcon.astro';
 
+import { HEADER } from '../../data';
+
 const TRANSPARENT_WITH_OPACITY = 'bg-transparent/10';
+const { photoPath, photoAlt } = HEADER;
 ---
 
 <script>
@@ -23,8 +26,8 @@ const TRANSPARENT_WITH_OPACITY = 'bg-transparent/10';
 				'object-cover',
 				'bg-cover',
 			]}
-			src='/subheader.jpeg'
-			alt='Daniel Alarcón standing in front of a skyscraper'
+			src={photoPath}
+			alt={photoAlt}
 		/>
 	</div>
 

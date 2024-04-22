@@ -7,6 +7,8 @@ interface Location {
 
 
 export interface Profile {
+	photoPath: string;
+	photoAlt: string;
 	name: string;
 	position: string;
 	location: Location;
@@ -18,6 +20,8 @@ export interface Profile {
 }
 
 export const PROFILE: Profile = {
+	photoPath: '/demo/profile.jpeg',
+	photoAlt: 'Description of your photo',
 	name: 'Your name',
 	position: 'Software Developer',
 	location: {
