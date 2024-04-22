@@ -21,14 +21,16 @@ pnpm i
 │	└── subheader.jpeg
 └──src/
     └── data/
-        └── experience.ts
-        └── profile.ts
-        └── projects.ts
+			└── experience.ts
+			└── header.ts
+			└── metadata.ts
+			└── profile.ts
+			└── projects.ts
 ```
 
-#### 1. Place your profile photo in /public/profile.jpeg
+#### 1. Place your profile photo in /public
 
-#### 2. Place your subheader photo in /public/subheader.jpeg
+#### 2. Place your subheader photo in /public/
 
 #### 3. Insert your experience
 
@@ -51,12 +53,36 @@ export const EXPERIENCES: Experience[] = [
 ]
 ```
 
-#### 4. Insert your profile
+#### 4. Insert your header data
+
+/src/data/header.ts
+
+```
+export const HEADER: Header = {
+	photoPath: '/subheader.jpeg',
+	photoAlt: 'A description of your subheader photo'
+}
+```
+
+#### 5. Insert your metadata
+
+/src/data/header.ts
+
+```
+export const METADATA: Metadata = {
+	pageDescription: 'The meta description of your portfolio',
+	pageTitle: 'The meta title of your portfolio'
+}
+```
+
+#### 6. Insert your profile
 
 /src/data/profile.ts
 
 ```
 export const PROFILE = {
+	photoPath: '/demo/profile.jpeg',
+	photoAlt: 'Description of your photo',
 	name: 'Your name',
 	position: 'Software Developer',
 	location: {
@@ -80,7 +106,7 @@ export const PROFILE = {
 }
 ```
 
-#### 5. Insert your projects
+#### 7. Insert your projects
 
 /src/data/projects.ts
 
@@ -108,7 +134,7 @@ export const PROJECTS: Project[] = [
 ]
 ```
 
-#### 6. Visual result
+#### 8. Visual result
 
 ![](./public/demo/experience.png)
 ![](./public/demo/profile.png)
@@ -156,3 +182,11 @@ All commands are run from the root of the project, from a terminal:
 | `pnpm run preview`         | Preview your build locally, before deploying     |
 | `pnpm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
 | `pnpm run astro -- --help` | Get help using the Astro CLI                     |
+
+## Troubleshooting
+
+### Deploy Astro build
+
+#### - Files in "/public" not found
+
+Related with: https://github.com/withastro/astro/issues/740. Replace public relative paths to "/" with "./"
