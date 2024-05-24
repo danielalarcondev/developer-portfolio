@@ -8,10 +8,7 @@ const PRIMARY_COLOR = 'bg-primary-700';
 	const ul = document.querySelector('.menu-ul') as HTMLElement;
 	const nav = document.querySelector('.menu-nav') as HTMLElement;
 	const menuButtons = document.querySelectorAll('.menu-anchor');
-	const themeSwitcher = document.querySelector(
-		'.theme-switcher'
-	) as HTMLInputElement;
-
+	
 	let isMenuOpen = false;
 	let intersectionObserverOptions = {
 		root: null,
@@ -84,28 +81,5 @@ export const configureMenu = () => {
 
 	menuButtons.forEach((button) => {
 		button.addEventListener('click', closeMenu);
-	});
-}
-
-export const handleThemeConfiguration: () => void = () => {
-
-	const initiateThemeConfiguration = () => {
-		const isSystemDark =
-			window.matchMedia('(prefers-color-scheme: dark)')?.matches || false;
-
-		if (isSystemDark) {
-			document.documentElement.classList.add('dark');
-			themeSwitcher?.click();
-		}
-	};
-
-	initiateThemeConfiguration();
-
-	themeSwitcher?.addEventListener('click', () => {
-		if (themeSwitcher?.checked) {
-			document.documentElement.classList.add('dark');
-		} else {
-			document.documentElement.classList.remove('dark');
-		}
 	});
 }
