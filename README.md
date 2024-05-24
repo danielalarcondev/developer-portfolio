@@ -5,6 +5,7 @@
 ### 1. Install dependencies
 
 -   Node Js: v18.14.1 or later.
+-   Pnpm 9.1.2 or later.
 
 ### 2. Run the following command in the project root
 
