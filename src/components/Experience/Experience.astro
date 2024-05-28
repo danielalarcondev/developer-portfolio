@@ -6,11 +6,6 @@ import { EXPERIENCES } from '../../data';
 import './experience.css';
 ---
 
-<script>
-	import { handleExperienceHeight } from './helpers';
-	handleExperienceHeight();
-</script>
-
 <section class:list={['experience-section', 'w-full', 'flex', 'flex-col']}>
 	<div class:list={['w-full', 'h-auto', 'flex', 'gap-8', 'mb-4']}>
 		<div
@@ -29,7 +24,7 @@ import './experience.css';
 		</h1>
 	</div>
 
-	<div class:list={['thin-scrollbar', ['overflow-auto']]}>
+	<div>
 		{
 			EXPERIENCES.map(({ date, title, description, tags }) => (
 				<ExperienceCard
