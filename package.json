@@ -7,13 +7,14 @@
     "start": "astro dev",
     "build": "astro check && astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "restart-packages": "npx rimraf node_modules && npx rimraf pnpm-lock.yaml && pnpm install"
   },
   "dependencies": {
     "@astrojs/check": "^0.7.0",
-    "@astrojs/tailwind": "^5.1.0",
+    "@astrojs/tailwind": "^6.0.2",
     "@fontsource-variable/onest": "^5.0.4",
-    "astro": "^4.9.1",
+    "astro": "^5.12.3",
     "autoprefixer": "^10.4.21",
     "flowbite": "^2.3.0",
     "pnpm": "^9.1.2",
@@ -24,6 +25,7 @@
   },
   "devDependencies": {
     "prettier": "^3.2.5",
-    "prettier-plugin-tailwindcss": "^0.5.14"
+    "prettier-plugin-tailwindcss": "^0.5.14",
+    "rimraf": "^6.0.1"
   }
 }
