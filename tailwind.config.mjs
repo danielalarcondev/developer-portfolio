@@ -4,7 +4,7 @@ const colors = require('tailwindcss/colors')
 
 export default {
 	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
-	darkMode: 'selector',
+	darkMode: 'class',
 	theme: {
 		colors: {
 			primary: colors.indigo,
@@ -13,7 +13,7 @@ export default {
 			transparent: 'transparent',
 			white: '#FFF',
 			black: '#000'
-		  },
+		},
 	},
 	plugins: [
 		require('flowbite/plugin')
