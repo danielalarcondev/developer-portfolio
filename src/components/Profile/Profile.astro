@@ -44,13 +44,13 @@ const {
 		'outline',
 		'outline-2',
 		'-outline-offset-2',
-		'rounded-sm',
+		'rounded-xs',
 		[
-			'outline-neutral-300 hover:outline-primary-500',
+			'outline-slate-300 hover:outline-indigo-500',
 			'dark:hover:outline-transparent',
 		],
 		'hover:shadow-lg',
-		['bg-white', 'dark:bg-neutral-300'],
+		['bg-white', 'dark:bg-slate-300'],
 	]}>
 	<article
 		class:list={[
@@ -67,13 +67,13 @@ const {
 		/>
 
 		<div class:list={['text-center']}>
-			<h1 class:list={['text-2xl', 'text-neutral-700']}>
+			<h1 class:list={['text-2xl', 'text-slate-700']}>
 				{name}
 			</h1>
 			<p
 				class:list={[
 					'text-sm',
-					['text-neutral-400', 'dark:text-neutral-600'],
+					['text-slate-400', 'dark:text-slate-600'],
 				]}>
 				{position}
 			</p>
@@ -83,14 +83,14 @@ const {
 					'justify-center',
 					'flex-col',
 					'mt-[0.5rem]',
-					'text-neutral-700',
+					'text-slate-700',
 				]}>
 				<LocationIcon />
 				<p
 					class:list={[
 						'text-sm',
 						'align-bottom',
-						['text-neutral-400', 'dark:text-neutral-600'],
+						['text-slate-400', 'dark:text-slate-600'],
 					]}>
 					{location.city}
 				</p>
@@ -98,7 +98,7 @@ const {
 					class:list={[
 						'text-sm',
 						'align-bottom',
-						['text-neutral-400', 'dark:text-neutral-600'],
+						['text-slate-400', 'dark:text-slate-600'],
 					]}>
 					{location.country}
 				</p>
@@ -113,13 +113,13 @@ const {
 	<article
 		class:list={[
 			'border',
-			'rounded-sm p-4',
+			'rounded-xs p-4',
 			[
-				'border-neutral-300 hover:border-secondary-300',
-				'dark:hover:border-secondary-500',
+				'border-slate-300 hover:border-rose-300',
+				'dark:hover:border-rose-500',
 			],
 		]}>
-		<p class:list={['text-base', 'font-bold', 'dark:text-neutral-900']}>
+		<p class:list={['text-base', 'font-bold', 'dark:text-slate-900']}>
 			Languages
 		</p>
 		<hr
@@ -127,7 +127,7 @@ const {
 				'mt-1',
 				'mb-[0.5rem]',
 				'-ml-1',
-				'dark:border-neutral-500',
+				'dark:border-slate-500',
 			]}
 		/>
 		<div>
@@ -140,7 +140,7 @@ const {
 								'inline',
 								'align-',
 								'mr-[4px]',
-								'text-neutral-700',
+								'text-slate-700',
 								'text-sm',
 							]}>
 							{language}
@@ -154,14 +154,14 @@ const {
 	<article
 		class:list={[
 			'border',
-			'rounded-sm',
+			'rounded-xs',
 			'p-4',
 			[
-				'border-neutral-300 hover:border-secondary-300',
-				'dark:hover:border-secondary-500',
+				'border-slate-300 hover:border-rose-300',
+				'dark:hover:border-rose-500',
 			],
 		]}>
-		<p class:list={['text-base', 'font-bold', 'dark:text-neutral-900']}>
+		<p class:list={['text-base', 'font-bold', 'dark:text-slate-900']}>
 			About me
 		</p>
 		<hr
@@ -169,10 +169,10 @@ const {
 				'mt-1',
 				'mb-[0.5rem]',
 				'-ml-1',
-				'dark:border-neutral-500',
+				'dark:border-slate-500',
 			]}
 		/>
-		<div class:list={['flex', 'flex-col', 'gap-4 ', 'text-neutral-700']}>
+		<div class:list={['flex', 'flex-col', 'gap-4 ', 'text-slate-700']}>
 			{
 				aboutMe.map((paragraph) => (
 					<p class:list={['text-sm']}>{paragraph}</p>

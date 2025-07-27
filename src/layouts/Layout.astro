@@ -22,8 +22,8 @@ const { pageDescription, pageTitle } = METADATA;
 	lang='en'
 	class:list={[
 		'scroll-smooth',
-		['bg-neutral-100', 'dark:bg-neutral-800'],
-		['text-neutral-800', 'dark:text-neutral-200'],
+		['bg-slate-100', 'dark:bg-slate-800'],
+		['text-slate-800', 'dark:text-slate-200'],
 		'scroll-pt-[7.70rem]',
 	]}>
 	<head>
@@ -105,10 +105,6 @@ const { pageDescription, pageTitle } = METADATA;
 		/>
 
 		<title>{pageTitle}</title>
-		<script
-			is:inline
-			src='https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.0/flowbite.min.js'
-		></script>
 	</head>
 	<body
 		class:list={['max-w-screen-2xl', 'min-h-screen', 'w-auto', 'mx-auto']}>
@@ -125,6 +121,8 @@ const { pageDescription, pageTitle } = METADATA;
 			]}>
 			<slot />
 		</div>
+
+		<script src='../../node_modules/flowbite/dist/flowbite.min.js'></script>
 	</body>
 </html>
 
