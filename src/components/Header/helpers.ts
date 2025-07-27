@@ -1,5 +1,5 @@
 
-const PRIMARY_COLOR = 'bg-primary-700';
+const PRIMARY_COLOR = 'bg-indigo-700';
 	const TRANSPARENT = 'bg-transparent';
 	const TRANSPARENT_WITH_OPACITY = 'bg-transparent/10';
 

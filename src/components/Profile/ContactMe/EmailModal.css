@@ -1,17 +1,17 @@
 @keyframes flashText {
 	0% {
-		color: theme('colors.neutral.500');
+		color: #64748b;
 		transform: scale(1);
 	}
 	25% {
 		transform: scale(0.97);
 	}
 	75% {
-		color: theme('colors.primary.500');
+	color: #6366f1;
 		transform: scale(1.05);
 	}
 	100% {
-		color: theme('colors.neutral.500');
+		color: #64748b;
 		transform: scale(1);
 	}
 }

@@ -7,8 +7,7 @@
     "start": "astro dev",
     "build": "astro check && astro build",
     "preview": "astro preview",
-    "astro": "astro",
-    "restart-packages": "npx rimraf node_modules && npx rimraf pnpm-lock.yaml && pnpm install"
+    "astro": "astro"
   },
   "dependencies": {
     "@astrojs/check": "^0.7.0",

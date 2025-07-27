@@ -23,8 +23,8 @@ export const PROJECTS: Project[] = [
 			'Css',
 			'Tailwind',
 		],
-		desktopMedia: ['/demo/desktop.mp4'],
-		phoneMedia: ['/demo/phone.mp4'],
+		desktopMedia: ['/demo/desktop.mp4', '/demo/desktop.mp4'],
+		phoneMedia: ['/demo/phone.mp4', '/demo/phone.mp4'],
 		liveLink: 'https://google.com',
 		repositoryLink: 'https://github.com/',
 		isActive: true
